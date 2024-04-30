@@ -5,6 +5,8 @@ import alchemystar.freedom.recovery.RecoverManager;
 import alchemystar.freedom.store.log.LogStore;
 
 /**
+ * The type Database.
+ *
  * @Author lizhuyang
  */
 public class Database {
@@ -32,46 +34,101 @@ public class Database {
         recoverManager.recover();
     }
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static Database getInstance() {
         return database;
     }
 
+    /**
+     * Gets server port.
+     *
+     * @return the server port
+     */
     public int getServerPort() {
         return serverPort;
     }
 
+    /**
+     * Sets server port.
+     *
+     * @param serverPort the server port
+     */
     public void setServerPort(int serverPort) {
         this.serverPort = serverPort;
     }
 
+    /**
+     * Gets user name.
+     *
+     * @return the user name
+     */
     public String getUserName() {
         return userName;
     }
 
+    /**
+     * Sets user name.
+     *
+     * @param userName the user name
+     */
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
+    /**
+     * Gets pass wd.
+     *
+     * @return the pass wd
+     */
     public String getPassWd() {
         return passWd;
     }
 
+    /**
+     * Sets pass wd.
+     *
+     * @param passWd the pass wd
+     */
     public void setPassWd(String passWd) {
         this.passWd = passWd;
     }
 
+    /**
+     * Gets table loader.
+     *
+     * @return the table loader
+     */
     public TableLoader getTableLoader() {
         return tableLoader;
     }
 
+    /**
+     * Sets table loader.
+     *
+     * @param tableLoader the table loader
+     */
     public void setTableLoader(TableLoader tableLoader) {
         this.tableLoader = tableLoader;
     }
 
+    /**
+     * Gets log store.
+     *
+     * @return the log store
+     */
     public LogStore getLogStore() {
         return logStore;
     }
 
+    /**
+     * Sets log store.
+     *
+     * @param logStore the log store
+     */
     public void setLogStore(LogStore logStore) {
         this.logStore = logStore;
     }

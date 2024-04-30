@@ -3,15 +3,25 @@ package alchemystar.freedom.meta.value;
 import alchemystar.freedom.util.BufferWrapper;
 
 /**
+ * The type Value int.
+ *
  * @Author lizhuyang
  */
 public class ValueInt extends Value {
 
     private int i;
 
+    /**
+     * Instantiates a new Value int.
+     */
     public ValueInt() {
     }
 
+    /**
+     * Instantiates a new Value int.
+     *
+     * @param i the
+     */
     public ValueInt(int i) {
         this.i = i;
     }
@@ -52,6 +62,12 @@ public class ValueInt extends Value {
         return i;
     }
 
+    /**
+     * Sets int.
+     *
+     * @param i the
+     * @return the int
+     */
     public ValueInt setInt(int i) {
         this.i = i;
         return this;
@@ -84,18 +100,22 @@ public class ValueInt extends Value {
         return new ValueInt(i + v.getInt());
     }
 
+    @Override
     public Value subtract(Value v) {
         return new ValueInt(i - v.getInt());
     }
 
+    @Override
     public Value divide(Value v) {
         return new ValueInt(i / v.getInt());
     }
 
+    @Override
     public Value multiply(Value v) {
         return new ValueInt(i * v.getInt());
     }
 
+    @Override
     public Value concat(Value v) {
         return new ValueString(this.toString() + v.toString());
     }

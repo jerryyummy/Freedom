@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ee0a0092-c184-49a4-bafc-5f711a922a02" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/server/FreedomServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/server/FreedomServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/config/SystemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/config/SystemConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/Value.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/ValueBoolean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/ValueBoolean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/ValueInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/ValueInt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/ValueLong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/ValueLong.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/util/BufferWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/util/BufferWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +67,6 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="freedom" />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -66,6 +76,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -73,31 +86,33 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="1XQ0nxg5PcmRHsVRYna8NMU08p8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="Show&#9;FILE&#9;file:///Users/alchemystar/mycode/Freedom/src/main/java/alchemystar/freedom/engine/net/response/ShowTables.java&#10;Select&#9;FILE&#9;file:///Users/alchemystar/mycode/Freedom/src/main/java/alchemystar/freedom/engine/net/handler/frontend/SelectHandler.java&#10;ServerPar&#9;FILE&#9;file:///Users/alchemystar/mycode/Freedom/src/main/java/alchemystar/freedom/engine/parser/ServerParseShow.java&#10;ShowTab&#9;PSI&#9;JAVA://alchemystar.freedom.engine.net.response.ShowTables&#10;ROW&#9;FILE&#9;file:///Users/alchemystar/mycode/Freedom/src/main/java/alchemystar/freedom/engine/net/proto/mysql/RowDataPacket.java&#10;auth&#9;FILE&#9;file:///Users/alchemystar/mycode/Freedom/src/main/java/alchemystar/freedom/engine/net/proto/mysql/AuthPacket.java&#10;My&#9;FILE&#9;file:///Users/alchemystar/mycode/Freedom/src/main/java/alchemystar/freedom/engine/net/codec/MySqlPacketDecoder.java&#10;ServerQuery&#9;PSI&#9;JAVA://alchemystar.freedom.engine.net.handler.frontend.ServerQueryHandler&#10;OkP&#9;FILE&#9;file:///Users/alchemystar/mycode/Freedom/src/main/java/alchemystar/freedom/engine/net/proto/mysql/OkPacket.java&#10;Ser&#9;FILE&#9;file:///Users/alchemystar/mycode/Freedom/src/main/java/alchemystar/freedom/engine/server/FreedomServer.java&#10;handShake&#9;FILE&#9;file:///Users/alchemystar/mycode/Freedom/src/main/java/alchemystar/freedom/engine/net/proto/mysql/HandshakePacket.java&#10;HandS&#9;FILE&#9;file:///Users/alchemystar/mycode/Freedom/src/main/java/alchemystar/freedom/engine/net/proto/mysql/HandshakePacket.java&#10;InputSt&#9;FILE&#9;jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/src.zip!/java/io/InputStream.java&#10;SocketInput&#9;PSI&#9;JAVA://java.net.SocketInputStream&#10;InputStream&#9;PSI&#9;JAVA://java.io.InputStream&#10;MySQLP&#9;FILE&#9;file:///Users/alchemystar/mycode/Freedom/src/main/java/alchemystar/freedom/engine/net/proto/MySQLPacket.java&#10;Syste&#9;PSI&#9;JAVA://alchemystar.freedom.config.SystemConfig&#10;Server&#9;FILE&#9;file:///Users/alchemystar/mycode/Freedom/src/main/java/alchemystar/freedom/engine/server/FreedomServer.java&#10;ResultSet&#9;FILE&#9;file:///Users/alchemystar/mycode/Freedom/src/main/java/alchemystar/freedom/engine/net/proto/mysql/ResultSetHeaderPacket.java&#10;Freed&#9;PSI&#9;JAVA://alchemystar.freedom.engine.server.FreedomServer" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574677333886" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
-    <property name="options.lastSelected" value="preferences.sourceCode.General" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
-  </component>
-  <component name="RunManager" selected="Application.FreedomServer">
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/youyun/Documents/java-project/Freedom&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.ValueString">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -226,6 +241,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ValueString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="alchemystar.freedom.meta.value.ValueString" />
+      <module name="freedom" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alchemystar.freedom.meta.value.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -275,11 +304,13 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.ValueString" />
       <item itemvalue="Application.FreedomServer" />
       <item itemvalue="JUnit.DeleteTest.test2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ValueString" />
         <item itemvalue="Application.FreedomServer" />
         <item itemvalue="JUnit.DeleteTest.test2" />
       </list>
@@ -297,6 +328,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -317,6 +349,9 @@
       <workItem from="1568791967113" duration="908000" />
       <workItem from="1568793062574" duration="701000" />
       <workItem from="1574675872013" duration="1532000" />
+      <workItem from="1714401173727" duration="2129000" />
+      <workItem from="1714437198969" duration="602000" />
+      <workItem from="1714437855748" duration="3827000" />
     </task>
     <servers />
   </component>
@@ -324,7 +359,7 @@
     <option name="totallyTimeSpent" value="61274000" />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -333,77 +368,6 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="49" y="123" width="1080" height="577" key="DiffContextDialog" timestamp="1589956532581">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="49" y="123" width="1080" height="577" key="DiffContextDialog/0.23.1280.777@0.23.1280.777" timestamp="1589956532581" />
-    <state width="1238" height="299" key="GridCell.Tab.0.bottom" timestamp="1587866748455">
-      <screen x="0" y="23" width="1280" height="730" />
-    </state>
-    <state width="1238" height="299" key="GridCell.Tab.0.bottom/0.23.1280.730@0.23.1280.730" timestamp="1587866748455" />
-    <state width="1238" height="299" key="GridCell.Tab.0.bottom/0.23.1280.732@0.23.1280.732" timestamp="1587693392899" />
-    <state width="1238" height="299" key="GridCell.Tab.0.center" timestamp="1587866748455">
-      <screen x="0" y="23" width="1280" height="730" />
-    </state>
-    <state width="1238" height="299" key="GridCell.Tab.0.center/0.23.1280.730@0.23.1280.730" timestamp="1587866748455" />
-    <state width="1238" height="299" key="GridCell.Tab.0.center/0.23.1280.732@0.23.1280.732" timestamp="1587693392898" />
-    <state width="1238" height="299" key="GridCell.Tab.0.left" timestamp="1587866748454">
-      <screen x="0" y="23" width="1280" height="730" />
-    </state>
-    <state width="1238" height="299" key="GridCell.Tab.0.left/0.23.1280.730@0.23.1280.730" timestamp="1587866748454" />
-    <state width="1238" height="299" key="GridCell.Tab.0.left/0.23.1280.732@0.23.1280.732" timestamp="1587693392898" />
-    <state width="1238" height="299" key="GridCell.Tab.0.right" timestamp="1587866748455">
-      <screen x="0" y="23" width="1280" height="730" />
-    </state>
-    <state width="1238" height="299" key="GridCell.Tab.0.right/0.23.1280.730@0.23.1280.730" timestamp="1587866748455" />
-    <state width="1238" height="299" key="GridCell.Tab.0.right/0.23.1280.732@0.23.1280.732" timestamp="1587693392899" />
-    <state width="1238" height="299" key="GridCell.Tab.1.bottom" timestamp="1587866748456">
-      <screen x="0" y="23" width="1280" height="730" />
-    </state>
-    <state width="1238" height="299" key="GridCell.Tab.1.bottom/0.23.1280.730@0.23.1280.730" timestamp="1587866748456" />
-    <state width="1238" height="299" key="GridCell.Tab.1.bottom/0.23.1280.732@0.23.1280.732" timestamp="1587693392901" />
-    <state width="1238" height="299" key="GridCell.Tab.1.center" timestamp="1587866748456">
-      <screen x="0" y="23" width="1280" height="730" />
-    </state>
-    <state width="1238" height="299" key="GridCell.Tab.1.center/0.23.1280.730@0.23.1280.730" timestamp="1587866748456" />
-    <state width="1238" height="299" key="GridCell.Tab.1.center/0.23.1280.732@0.23.1280.732" timestamp="1587693392901" />
-    <state width="1238" height="299" key="GridCell.Tab.1.left" timestamp="1587866748456">
-      <screen x="0" y="23" width="1280" height="730" />
-    </state>
-    <state width="1238" height="299" key="GridCell.Tab.1.left/0.23.1280.730@0.23.1280.730" timestamp="1587866748456" />
-    <state width="1238" height="299" key="GridCell.Tab.1.left/0.23.1280.732@0.23.1280.732" timestamp="1587693392899" />
-    <state width="1238" height="299" key="GridCell.Tab.1.right" timestamp="1587866748456">
-      <screen x="0" y="23" width="1280" height="730" />
-    </state>
-    <state width="1238" height="299" key="GridCell.Tab.1.right/0.23.1280.730@0.23.1280.730" timestamp="1587866748456" />
-    <state width="1238" height="299" key="GridCell.Tab.1.right/0.23.1280.732@0.23.1280.732" timestamp="1587693392901" />
-    <state x="0" y="78" key="SettingsEditor" timestamp="1589882940186">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="0" y="78" key="SettingsEditor/0.23.1280.777@0.23.1280.777" timestamp="1589882940186" />
-    <state x="319" y="233" key="com.intellij.ide.util.TipDialog" timestamp="1589166050771">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="319" y="220" key="com.intellij.ide.util.TipDialog/0.23.1280.730@0.23.1280.730" timestamp="1587880300897" />
-    <state x="319" y="233" key="com.intellij.ide.util.TipDialog/0.23.1280.777@0.23.1280.777" timestamp="1589166050771" />
-    <state x="313" y="205" width="683" height="476" key="find.popup" timestamp="1589956621670">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="313" y="205" width="683" height="476" key="find.popup/0.23.1280.777@0.23.1280.777" timestamp="1589956621670" />
-    <state x="0" y="23" key="new project wizard" timestamp="1588059284449">
-      <screen x="0" y="23" width="1280" height="730" />
-    </state>
-    <state x="0" y="23" key="new project wizard/0.23.1280.730@0.23.1280.730" timestamp="1588059284449" />
-    <state x="245" y="174" key="run.anything.popup" timestamp="1589794946398">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="245" y="174" key="run.anything.popup/0.23.1280.777@0.23.1280.777" timestamp="1589794946398" />
-    <state x="320" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1589956506516">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="320" y="124" width="670" height="676" key="search.everywhere.popup/0.23.1280.777@0.23.1280.777" timestamp="1589956506516" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

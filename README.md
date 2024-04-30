@@ -9,7 +9,7 @@ Freedom采用的是索引组织表，通过DruidSQL Parse来将sql翻译为对�
 ## MySQL Protocol结构
 client/server之间的交互采用的是MySQL协议，这样很容易就可以和mysql client以及jdbc进行交互了。      
 ### query packet 
-mysql通过3byte的定长包头去进行分包，进而解决tcp流的读取问题。再通过一个sequenceId来再应用层判断packet是否连续。      
+mysql通过3byte的定长包头去进行分包，进而解决tcp流的读取问题。再通过一个sequenceId来在应用层判断packet是否连续。      
 ![](https://oscimg.oschina.net/oscnet/up-0b7d17469107496fd399312ec786141899d.png)        
 ### result set packet
 mysql协议部分最复杂的内容是其对于result set的读取，在NIO的方式下加重了复杂性。
@@ -80,7 +80,7 @@ table的元信息由create table所创建。创建之后会将元信息落盘，
 ## 事务支持
 由于当前Freedom并没有保证并发，所以对于事务的支持只做了最简单的WAL协议。通过记录redo/undolog从而实现原子性。
 ### redo/undo log协议格式
-Freedom在每做一个修改操作时，都会生成一条日志，其中记录了修改前(undo)和修改后(redo)的行信息，redo用来回滚,redo用来宕机recover。结构如下图所示:      
+Freedom在每做一个修改操作时，都会生成一条日志，其中记录了修改前(undo)和修改后(redo)的行信息，undo用来回滚,redo用来宕机recover。结构如下图所示:      
 ![](https://oscimg.oschina.net/oscnet/up-8672b50ccdf8ae795a07cff3dff33a674e2.png)     
 ### WAL协议
 WAL协议很好理解，就是在事务commit前将当前事务中所产生的的所有log记录刷入磁盘。

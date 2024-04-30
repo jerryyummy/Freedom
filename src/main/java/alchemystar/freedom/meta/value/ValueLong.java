@@ -3,15 +3,25 @@ package alchemystar.freedom.meta.value;
 import alchemystar.freedom.util.BufferWrapper;
 
 /**
+ * The type Value long.
+ *
  * @Author lizhuyang
  */
 public class ValueLong extends Value {
 
     private long i;
 
+    /**
+     * Instantiates a new Value long.
+     */
     public ValueLong() {
     }
 
+    /**
+     * Instantiates a new Value long.
+     *
+     * @param i the
+     */
     public ValueLong(long i) {
         this.i = i;
     }
@@ -62,6 +72,12 @@ public class ValueLong extends Value {
         return (int)i;
     }
 
+    /**
+     * Sets long.
+     *
+     * @param i the
+     * @return the long
+     */
     public ValueLong setLong(long i) {
         this.i = i;
         return this;
@@ -89,18 +105,22 @@ public class ValueLong extends Value {
         return new ValueLong(i + v.getLong());
     }
 
+    @Override
     public Value subtract(Value v) {
         return new ValueLong(i - v.getLong());
     }
 
+    @Override
     public Value divide(Value v) {
         return new ValueLong(i / v.getLong());
     }
 
+    @Override
     public Value multiply(Value v) {
         return new ValueLong(i * v.getLong());
     }
 
+    @Override
     public Value concat(Value v) {
         return new ValueString(this.toString() + v.toString());
     }

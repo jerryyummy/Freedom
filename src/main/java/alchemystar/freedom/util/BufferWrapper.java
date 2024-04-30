@@ -1,9 +1,10 @@
 package alchemystar.freedom.util;
 
+
 /**
- * Buffer提供了writeInt,String,long等功能
- *
- * @Author lizhuyang
+ * The type Buffer wrapper.
+ * <p>
+ * Buffer提供了write 和 read byte，Int,String,long等功能
  */
 public class BufferWrapper {
 
@@ -16,6 +17,11 @@ public class BufferWrapper {
 
     private int length;
 
+    /**
+     * Instantiates a new Buffer wrapper.
+     *
+     * @param size the size
+     */
     public BufferWrapper(int size) {
         buffer = new byte[size];
         writeIndex = 0;
@@ -23,6 +29,11 @@ public class BufferWrapper {
         length = buffer.length;
     }
 
+    /**
+     * Instantiates a new Buffer wrapper.
+     *
+     * @param buffer the buffer
+     */
     public BufferWrapper(byte[] buffer) {
         this.buffer = buffer;
         writeIndex = 0;
@@ -30,10 +41,20 @@ public class BufferWrapper {
         length = buffer.length;
     }
 
+    /**
+     * Get buffer byte [ ].
+     *
+     * @return the byte [ ]
+     */
     public byte[] getBuffer() {
         return buffer;
     }
 
+    /**
+     * Write int.
+     *
+     * @param i the
+     */
     public void writeInt(int i) {
         buffer[writeIndex++] = (byte) (i & 0xff);
         buffer[writeIndex++] = (byte) (i >>> 8);
@@ -41,7 +62,13 @@ public class BufferWrapper {
         buffer[writeIndex++] = (byte) (i >>> 24);
     }
 
-    // 在指定位置写入int
+    /**
+     * Write int pos.
+     *
+     * @param i        the
+     * @param position the position
+     */
+// 在指定位置写入int
     public void writeIntPos(int i, int position) {
         buffer[position++] = (byte) (i & 0xff);
         buffer[position++] = (byte) (i >>> 8);
@@ -49,10 +76,20 @@ public class BufferWrapper {
         buffer[position++] = (byte) (i >>> 24);
     }
 
+    /**
+     * Write byte.
+     *
+     * @param i the
+     */
     public void writeByte(byte i) {
         buffer[writeIndex++] = i;
     }
 
+    /**
+     * Write long.
+     *
+     * @param l the l
+     */
     public void writeLong(long l) {
         buffer[writeIndex++] = (byte) (l & 0xff);
         buffer[writeIndex++] = (byte) (l >>> 8);
@@ -64,18 +101,39 @@ public class BufferWrapper {
         buffer[writeIndex++] = (byte) (l >>> 56);
     }
 
+    /**
+     * Write string with null.
+     *
+     * @param s the s
+     */
     public void writeStringWithNull(String s) {
         writeWithNull(s.getBytes());
     }
 
+    /**
+     * Write bytes.
+     *
+     * @param src the src
+     */
     public void writeBytes(byte[] src) {
         System.arraycopy(src, 0, buffer, writeIndex, src.length);
     }
 
+    /**
+     * Write bytes.
+     *
+     * @param src      the src
+     * @param position the position
+     */
     public void writeBytes(byte[] src, int position) {
         System.arraycopy(src, 0, buffer, position, src.length);
     }
 
+    /**
+     * Write with null.
+     *
+     * @param src the src
+     */
     public void writeWithNull(byte[] src) {
         System.arraycopy(src, 0, buffer, writeIndex, src.length);
         writeIndex += src.length;
@@ -84,6 +142,11 @@ public class BufferWrapper {
         writeIndex++;
     }
 
+    /**
+     * Read int int.
+     *
+     * @return the int
+     */
     public int readInt() {
         final byte[] b = this.buffer;
         int i = b[readIndex++] & 0xff;
@@ -93,6 +156,12 @@ public class BufferWrapper {
         return i;
     }
 
+    /**
+     * Read int pos int.
+     *
+     * @param position the position
+     * @return the int
+     */
     public int readIntPos(int position) {
         final byte[] b = this.buffer;
         int i = b[position++] & 0xff;
@@ -102,6 +171,11 @@ public class BufferWrapper {
         return i;
     }
 
+    /**
+     * Read long long.
+     *
+     * @return the long
+     */
     public long readLong() {
         final byte[] b = this.buffer;
         long l = (long) (b[readIndex++] & 0xff);
@@ -115,19 +189,41 @@ public class BufferWrapper {
         return l;
     }
 
+    /**
+     * Read string with null string.
+     *
+     * @return the string
+     */
     public String readStringWithNull() {
         return new String(readBytesWithNull());
     }
 
+    /**
+     * Read string with length string.
+     *
+     * @param position the position
+     * @return the string
+     */
     public String readStringWithLength(int position) {
         return new String(readBytesWithLength(position));
     }
 
+    /**
+     * Read byte byte.
+     *
+     * @return the byte
+     */
     public byte readByte() {
         return buffer[readIndex++];
     }
 
-    // 读取当前位置指定长度的length
+    /**
+     * Read bytes byte [ ].
+     *
+     * @param length the length
+     * @return the byte [ ]
+     */
+// 读取当前位置指定长度的length
     public byte[] readBytes(int length) {
         final byte[] b = this.buffer;
         byte[] result = new byte[length];
@@ -137,7 +233,14 @@ public class BufferWrapper {
         return result;
     }
 
-    // 读取指定位置指定长度的length
+    /**
+     * Read bytes byte [ ].
+     *
+     * @param position the position
+     * @param length   the length
+     * @return the byte [ ]
+     */
+// 读取指定位置指定长度的length
     public byte[] readBytes(int position, int length) {
         final byte[] b = this.buffer;
         byte[] result = new byte[length];
@@ -146,7 +249,13 @@ public class BufferWrapper {
         return result;
     }
 
-    // 读取指定地点的bytes
+    /**
+     * Read bytes with length byte [ ].
+     *
+     * @param position the position
+     * @return the byte [ ]
+     */
+// 读取指定地点的bytes
     public byte[] readBytesWithLength(int position) {
         final byte[] b = this.buffer;
         // 首先读取长度
@@ -166,6 +275,11 @@ public class BufferWrapper {
         return result;
     }
 
+    /**
+     * Read bytes with null byte [ ].
+     *
+     * @return the byte [ ]
+     */
     public byte[] readBytesWithNull() {
         final byte[] b = this.buffer;
         if (readIndex >= length) {
@@ -195,19 +309,37 @@ public class BufferWrapper {
         }
     }
 
+    /**
+     * Write string length.
+     *
+     * @param s the s
+     */
     public void writeStringLength(String s) {
         writeWithLength(s.getBytes());
     }
 
+    /**
+     * Write with length.
+     *
+     * @param src the src
+     */
     public void writeWithLength(byte[] src) {
         writeInt(src.length);
         writeBytes(src);
     }
 
+    /**
+     * Remaining int.
+     *
+     * @return the int
+     */
     public int remaining() {
         return length - readIndex;
     }
 
+    /**
+     * Clean.
+     */
     public void clean() {
         // 重置索引
         writeIndex = 0;
@@ -217,6 +349,11 @@ public class BufferWrapper {
         buffer = new byte[buffer.length];
     }
 
+    /**
+     * Gets length.
+     *
+     * @return the length
+     */
     public int getLength() {
         return length;
     }

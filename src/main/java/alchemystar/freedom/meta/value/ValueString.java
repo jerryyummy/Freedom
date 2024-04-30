@@ -11,9 +11,17 @@ public class ValueString extends Value {
 
     private String s;
 
+    /**
+     * Instantiates a new Value string.
+     */
     public ValueString() {
     }
 
+    /**
+     * Instantiates a new Value string.
+     *
+     * @param s the s
+     */
     public ValueString(String s) {
         this.s = s;
     }
@@ -51,6 +59,12 @@ public class ValueString extends Value {
         return s;
     }
 
+    /**
+     * Sets string.
+     *
+     * @param s the s
+     * @return the string
+     */
     public ValueString setString(String s) {
         this.s = s;
         return this;
@@ -89,7 +103,12 @@ public class ValueString extends Value {
         throw new RuntimeException("not support this type , valueType=" + v.getType());
     }
 
+    /**
+     * Main.
+     *
+     * @param args the args
+     */
     public static void main(String args[]) {
         System.out.println("alchemystar1".compareTo("alchemystar10"));
-    }
+    }// test
 }

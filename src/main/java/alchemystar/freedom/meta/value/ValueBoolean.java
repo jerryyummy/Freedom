@@ -9,9 +9,17 @@ public class ValueBoolean extends Value {
 
     private boolean b;
 
+    /**
+     * Instantiates a new Value boolean.
+     */
     public ValueBoolean() {
     }
 
+    /**
+     * Instantiates a new Value boolean.
+     *
+     * @param b the b
+     */
     public ValueBoolean(boolean b) {
         this.b = b;
     }
@@ -63,10 +71,21 @@ public class ValueBoolean extends Value {
         }
     }
 
+    /**
+     * Gets boolean.
+     *
+     * @return the boolean
+     */
     public boolean getBoolean() {
         return b;
     }
 
+    /**
+     * Sets boolean.
+     *
+     * @param b the b
+     * @return the boolean
+     */
     public ValueBoolean setBoolean(boolean b) {
         this.b = b;
         return this;

@@ -15,7 +15,7 @@ public interface SystemConfig {
 
     int DEFAULT_SPECIAL_POINT_LENGTH = 64;
 
-    String RELATION_FILE_PRE_FIX = "/Users/alchemystar/var/freedom/";
+    String RELATION_FILE_PRE_FIX = "/Users/youyun/Documents/alchemystar/var/freedom";
 
     String FREEDOM_REL_DATA_PATH = RELATION_FILE_PRE_FIX + "/data";
 
