@@ -26,6 +26,9 @@ public class Trx {
 
     private List<Log> logs = new ArrayList<Log>();
 
+    /**
+     * Begin.
+     */
     public void begin() {
         // 事务开启日志
         Log startLog = new Log();
@@ -37,11 +40,24 @@ public class Trx {
         state = TrxState.TRX_STATE_ACTIVE;
     }
 
+    /**
+     * Add log.
+     *
+     * @param log the log
+     */
     public void addLog(Log log) {
         logs.add(log);
     }
 
-    // 都是Row模式下的add
+    /**
+     * Add log.
+     *
+     * @param table  the table
+     * @param opType the op type
+     * @param before the before
+     * @param after  the after
+     */
+// 都是Row模式下的add
     public void addLog(Table table, int opType, IndexEntry before, IndexEntry after) {
         if (!(before == null || before instanceof ClusterIndexEntry) || !(after == null || after instanceof
                 ClusterIndexEntry)) {
@@ -62,6 +78,9 @@ public class Trx {
 
     }
 
+    /**
+     * Commit.
+     */
     public void commit() {
         // 加上commit日志
         Log commitLog = new Log();
@@ -74,7 +93,10 @@ public class Trx {
         logs.clear();
     }
 
-    // recovery
+    /**
+     * Redo.
+     */
+// recovery
     public void redo() {
         for (Log log : logs) {
             if (log.getLogType() == LogType.ROW) {
@@ -83,6 +105,9 @@ public class Trx {
         }
     }
 
+    /**
+     * Rollback.
+     */
     public void rollback() {
         undo();
         state = TrxState.TRX_STATE_NOT_STARTED;
@@ -90,10 +115,20 @@ public class Trx {
         logs.clear();
     }
 
+    /**
+     * Gets trx id.
+     *
+     * @return the trx id
+     */
     public int getTrxId() {
         return trxId;
     }
 
+    /**
+     * Sets trx id.
+     *
+     * @param trxId the trx id
+     */
     public void setTrxId(int trxId) {
         this.trxId = trxId;
     }
@@ -105,14 +140,29 @@ public class Trx {
         }
     }
 
+    /**
+     * Gets state.
+     *
+     * @return the state
+     */
     public int getState() {
         return state;
     }
 
+    /**
+     * Sets state.
+     *
+     * @param state the state
+     */
     public void setState(int state) {
         this.state = state;
     }
 
+    /**
+     * Trx is not start boolean.
+     *
+     * @return the boolean
+     */
     public boolean trxIsNotStart() {
         return state == TrxState.TRX_STATE_NOT_STARTED;
     }

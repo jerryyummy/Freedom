@@ -9,10 +9,17 @@ import alchemystar.freedom.transaction.OpType;
 import alchemystar.freedom.transaction.log.Log;
 
 /**
+ * The type Redo manager.
+ *
  * @Author lizhuyang
  */
 public class RedoManager {
 
+    /**
+     * Redo.
+     *
+     * @param log the log
+     */
     public static void redo(Log log) {
         Table table = TableManager.getTable(log.getTableName());
         switch (log.getOpType()) {

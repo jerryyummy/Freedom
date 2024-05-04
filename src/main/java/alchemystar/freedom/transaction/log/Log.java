@@ -4,6 +4,8 @@ import alchemystar.freedom.meta.IndexEntry;
 import io.netty.buffer.ByteBuf;
 
 /**
+ * The type Log.
+ *
  * @Author lizhuyang
  */
 public class Log {
@@ -24,62 +26,137 @@ public class Log {
 
     private IndexEntry after;
 
+    /**
+     * Gets table name.
+     *
+     * @return the table name
+     */
     public String getTableName() {
         return tableName;
     }
 
+    /**
+     * Sets table name.
+     *
+     * @param tableName the table name
+     */
     public void setTableName(String tableName) {
         this.tableName = tableName;
     }
 
+    /**
+     * Gets trx id.
+     *
+     * @return the trx id
+     */
     public int getTrxId() {
         return trxId;
     }
 
+    /**
+     * Sets trx id.
+     *
+     * @param trxId the trx id
+     */
     public void setTrxId(int trxId) {
         this.trxId = trxId;
     }
 
+    /**
+     * Gets before.
+     *
+     * @return the before
+     */
     public IndexEntry getBefore() {
         return before;
     }
 
+    /**
+     * Sets before.
+     *
+     * @param before the before
+     */
     public void setBefore(IndexEntry before) {
         this.before = before;
     }
 
+    /**
+     * Gets after.
+     *
+     * @return the after
+     */
     public IndexEntry getAfter() {
         return after;
     }
 
+    /**
+     * Sets after.
+     *
+     * @param after the after
+     */
     public void setAfter(IndexEntry after) {
         this.after = after;
     }
 
+    /**
+     * Gets op type.
+     *
+     * @return the op type
+     */
     public int getOpType() {
         return opType;
     }
 
+    /**
+     * Sets op type.
+     *
+     * @param opType the op type
+     */
     public void setOpType(int opType) {
         this.opType = opType;
     }
 
+    /**
+     * Gets log type.
+     *
+     * @return the log type
+     */
     public int getLogType() {
         return logType;
     }
 
+    /**
+     * Sets log type.
+     *
+     * @param logType the log type
+     */
     public void setLogType(int logType) {
         this.logType = logType;
     }
 
+    /**
+     * Gets lsn.
+     *
+     * @return the lsn
+     */
     public long getLsn() {
         return lsn;
     }
 
+    /**
+     * Sets lsn.
+     *
+     * @param lsn the lsn
+     */
     public void setLsn(long lsn) {
         this.lsn = lsn;
     }
 
+    /**
+     * Write bytes.
+     *
+     * @param byteBuf the byte buf
+     */
     public void writeBytes(ByteBuf byteBuf) {
         // for lsn
         byteBuf.writeLong(lsn);
