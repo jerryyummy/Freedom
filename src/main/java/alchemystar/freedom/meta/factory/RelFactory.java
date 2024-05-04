@@ -16,10 +16,21 @@ public class RelFactory {
         relFactory = new RelFactory();
     }
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static RelFactory getInstance() {
         return relFactory;
     }
 
+    /**
+     * New relation table.
+     *
+     * @param tableName the table name
+     * @return the table
+     */
     public Table newRelation(String tableName) {
         Table table = new Table();
         return table;

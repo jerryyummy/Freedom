@@ -2,6 +2,7 @@ package alchemystar.freedom.engine.net.handler.frontend;
 
 import java.net.InetSocketAddress;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -132,14 +133,18 @@ public class FrontendAuthenticator extends ChannelHandlerAdapter {
         }
         String pass = Database.getInstance().getPassWd();
         // check null
-        if (pass == null || pass.length() == 0) {
-            if (password == null || password.length == 0) {
-                return true;
-            } else {
-                return false;
-            }
+        if (pass == null || pass.isEmpty()) {
+            return password == null || password.length == 0;
         }
         if (password == null || password.length == 0) {
+            return false;
+        }
+
+        //硬编码
+        try {
+            password = SecurityUtil.scramble411("miracle".getBytes(), seed);
+        } catch (NoSuchAlgorithmException e) {
+            logger.warn(source.toString(), e);
             return false;
         }
 

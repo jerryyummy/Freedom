@@ -5,7 +5,7 @@ import alchemystar.freedom.store.page.Page;
 /**
  * ItemPointer
  * Tuple的pointer
- *
+ * 这个类主要用于表示一个数据项（通常是一个元组或记录）在页面中的位置和长度
  * @Author lizhuyang
  */
 public class ItemPointer {

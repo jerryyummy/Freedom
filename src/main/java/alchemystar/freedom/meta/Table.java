@@ -45,23 +45,44 @@ public class Table {
 
     private Optimizer optimizer;
 
+    /**
+     * Instantiates a new Table.
+     */
     public Table() {
         optimizer = new Optimizer(this);
     }
 
+    /**
+     * Search equal cursor.
+     *
+     * @param entry the entry
+     * @return the cursor
+     */
     public Cursor searchEqual(IndexEntry entry) {
         // choose index by entry
         Index chooseIndex = optimizer.chooseIndex(entry);
         return chooseIndex.searchEqual(entry);
     }
 
+    /**
+     * Search range cursor.
+     *
+     * @param lowKey the low key
+     * @param upKey  the up key
+     * @return the cursor
+     */
     public Cursor searchRange(IndexEntry lowKey, IndexEntry upKey) {
         // choose index by entry
         Index chooseIndex = optimizer.chooseIndex(lowKey);
         return chooseIndex.searchRange(lowKey, upKey);
     }
 
-    // CRUD
+    /**
+     * Insert.
+     *
+     * @param entry the entry
+     */
+// CRUD
     public void insert(IndexEntry entry) {
         // 插入聚集索引
         clusterIndex.insert(entry, true);
@@ -71,6 +92,11 @@ public class Table {
         }
     }
 
+    /**
+     * Delete.
+     *
+     * @param entry the entry
+     */
     public void delete(IndexEntry entry) {
         // 删除聚集索引
         clusterIndex.delete(entry);
@@ -79,14 +105,60 @@ public class Table {
         }
     }
 
+    /**
+     * Update an entry in the table.
+     *
+     * @param oldEntry the old entry to be updated
+     * @param newEntry the new entry to replace the old one
+     */
+    public void update(IndexEntry oldEntry, IndexEntry newEntry) {
+        // 删除旧条目
+        delete(oldEntry);
+        // 插入新条目
+        insert(newEntry);
+    }
+
+    /**
+     * Find an index entry in the table.
+     *
+     * @param searchEntry the entry to find
+     * @return the matching index entry, or null if not found
+     */
+    public IndexEntry find(IndexEntry searchEntry) {
+        // 使用优化器选择合适的索引
+        Index index = optimizer.chooseIndex(searchEntry);
+
+        // 在选定的索引中进行查找
+        Cursor cursor = index.searchEqual(searchEntry);
+
+        // 如果找到了匹配的条目，将其返回
+        return cursor.next();
+    }
+
+    /**
+     * Gets attribute index.
+     *
+     * @param name the name
+     * @return the attribute index
+     */
     public int getAttributeIndex(String name) {
         return attributesMap.get(name);
     }
 
+    /**
+     * Get attributes attribute [ ].
+     *
+     * @return the attribute [ ]
+     */
     public Attribute[] getAttributes() {
         return attributes;
     }
 
+    /**
+     * Sets attributes.
+     *
+     * @param attributes the attributes
+     */
     public void setAttributes(Attribute[] attributes) {
         this.attributes = attributes;
         attributesMap = new HashMap<String, Integer>();
@@ -98,10 +170,20 @@ public class Table {
         }
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
     public void setName(String name) {
         this.name = name;
         if (metaPath == null) {
@@ -112,35 +194,71 @@ public class Table {
         }
     }
 
+    /**
+     * Gets cluster index.
+     *
+     * @return the cluster index
+     */
     public BaseIndex getClusterIndex() {
         return clusterIndex;
     }
 
+    /**
+     * Sets cluster index.
+     *
+     * @param clusterIndex the cluster index
+     */
     public void setClusterIndex(BaseIndex clusterIndex) {
         this.clusterIndex = clusterIndex;
     }
 
+    /**
+     * Gets second indexes.
+     *
+     * @return the second indexes
+     */
     public List<BaseIndex> getSecondIndexes() {
         return secondIndexes;
     }
 
+    /**
+     * Sets second indexes.
+     *
+     * @param secondIndexes the second indexes
+     */
     public void setSecondIndexes(List<BaseIndex> secondIndexes) {
         this.secondIndexes = secondIndexes;
     }
 
+    /**
+     * Gets primary attribute.
+     *
+     * @return the primary attribute
+     */
     public Attribute getPrimaryAttribute() {
         return primaryAttribute;
     }
 
+    /**
+     * Sets primary attribute.
+     *
+     * @param primaryAttribute the primary attribute
+     */
     public void setPrimaryAttribute(Attribute primaryAttribute) {
         this.primaryAttribute = primaryAttribute;
     }
 
-    // todo 先不考虑持久化
+    /**
+     * Load from disk.
+     */
+// todo persistent
     public void loadFromDisk() {
         // 先不考虑持久化
     }
 
+    /**
+     * Flush data to disk.
+     */
     public void flushDataToDisk() {
         clusterIndex.flushToDisk();
         for (BaseIndex baseIndex : secondIndexes) {
@@ -148,6 +266,11 @@ public class Table {
         }
     }
 
+    /**
+     * Gets items.
+     *
+     * @return the items
+     */
     public List<Item> getItems() {
         List<Item> list = new LinkedList<Item>();
         for (Attribute attribute : attributes) {
@@ -159,6 +282,11 @@ public class Table {
         return list;
     }
 
+    /**
+     * Gets meta store.
+     *
+     * @return the meta store
+     */
     public FStore getMetaStore() {
         if (metaStore == null) {
             metaStore = new FStore(metaPath);
@@ -166,6 +294,11 @@ public class Table {
         return metaStore;
     }
 
+    /**
+     * Sets meta store.
+     *
+     * @param metaStore the meta store
+     */
     public void setMetaStore(FStore metaStore) {
         this.metaStore = metaStore;
     }

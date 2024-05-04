@@ -25,7 +25,14 @@ public class RedoManager {
                 table.delete(log.getBefore());
                 break;
             case OpType.update:
-                // todo
+                IndexEntry oldEntry = table.find(log.getBefore());
+                if (oldEntry != null) {
+                    IndexEntry newEntry = new ClusterIndexEntry(log.getAfter().getValues());
+                    newEntry.setIndexDesc(new IndexDesc(table.getAttributes()));
+                    table.update(oldEntry, newEntry); // 假设`update`方法更新旧条目为新条目
+                } else {
+                    System.out.println("Error: No matching entry found for update.");
+                }
                 break;
         }
     }

@@ -15,8 +15,11 @@ import alchemystar.freedom.sql.select.TableFilter;
  */
 public class TableManager {
 
+    //这是一个静态映射，存储以表名为键的 Table 对象实例。这个映射作为 TableManager 管理的所有表实例的中心存储
     public static Map<String, Table> tableMap = new HashMap<String, Table>();
 
+    //这个方法使用 SQLExprTableSource 和 SelectVisitor 创建一个新的 TableFilter 实例。从 SQLExprTableSource 提取表名，
+    // 用于从 tableMap 检索相应的 Table，并设置筛选条件为访问器的 where 条件
     public static TableFilter newTableFilter(SQLExprTableSource sqlExprTableSource, SelectVisitor selectVisitor) {
         TableFilter tableFilter = new TableFilter();
         String tableName = sqlExprTableSource.getExpr().toString();
@@ -28,6 +31,7 @@ public class TableManager {
         return tableFilter;
     }
 
+    //使用直接的 SQLExpr 来设置筛选条件，而不是使用 SelectVisitor。这为定义和应用筛选条件提供了灵活性
     public static TableFilter newTableFilter(SQLExprTableSource sqlExprTableSource, SQLExpr whereExpr) {
         TableFilter tableFilter = new TableFilter();
         String tableName = sqlExprTableSource.getExpr().toString();

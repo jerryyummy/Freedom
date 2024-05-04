@@ -51,7 +51,7 @@ public class LogStore {
         append(byteBuf.nioBuffer());
     }
 
-    // for 重新启动时候使用
+    //重新启动时候使用
     public List<Log> loadLog() {
         // 从文件开始load
         try {

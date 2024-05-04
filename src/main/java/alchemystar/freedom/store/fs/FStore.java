@@ -14,6 +14,7 @@ import alchemystar.freedom.transaction.log.Log;
 
 /**
  * FStore
+ * FStore 类为数据库系统提供了基础的文件存储操作，包括读取和写入数据页
  *
  * @Author lizhuyang
  */
@@ -26,20 +27,41 @@ public class FStore {
     // 当前filePosition
     private long currentFilePosition;
 
+    /**
+     * Instantiates a new F store.
+     *
+     * @param filePath the file path
+     */
     public FStore(String filePath) {
         this.filePath = filePath;
         currentFilePosition = 0;
         open();
     }
 
+    /**
+     * Open.
+     */
     public void open() {
         fileChannel = FileUtils.open(filePath);
     }
 
+    /**
+     * Read page from file page.
+     *
+     * @param pageIndex the page index
+     * @return the page
+     */
     public Page readPageFromFile(int pageIndex) {
         return readPageFromFile(pageIndex, false);
     }
 
+    /**
+     * Read page from file page.
+     *
+     * @param pageIndex the page index
+     * @param isIndex   the is index
+     * @return the page
+     */
     public Page readPageFromFile(int pageIndex, boolean isIndex) {
         int readPos = pageIndex * SystemConfig.DEFAULT_PAGE_SIZE;
         ByteBuffer buffer = ByteBuffer.allocate(SystemConfig.DEFAULT_PAGE_SIZE);
@@ -68,6 +90,12 @@ public class FStore {
         }
     }
 
+    /**
+     * Read page loader from file page loader.
+     *
+     * @param pageIndex the page index
+     * @return the page loader
+     */
     public PageLoader readPageLoaderFromFile(int pageIndex) {
         Page page = readPageFromFile(pageIndex);
         PageLoader loader = new PageLoader(page);
@@ -76,6 +104,12 @@ public class FStore {
         return loader;
     }
 
+    /**
+     * Write page to file.
+     *
+     * @param page      the page
+     * @param pageIndex the page index
+     */
     public void writePageToFile(Page page, int pageIndex) {
         try {
             int writePos = pageIndex * SystemConfig.DEFAULT_PAGE_SIZE;
@@ -86,10 +120,18 @@ public class FStore {
         }
     }
 
+    /**
+     * Append.
+     *
+     * @param log the log
+     */
     public void append(Log log) {
         
     }
 
+    /**
+     * Close.
+     */
     public void close() {
         FileUtils.closeFile(fileChannel);
     }

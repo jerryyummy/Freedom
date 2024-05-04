@@ -4,20 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee0a0092-c184-49a4-bafc-5f711a922a02" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ee0a0092-c184-49a4-bafc-5f711a922a02" name="Default" comment="add comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/config/SystemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/config/SystemConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/Value.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/ValueBoolean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/ValueBoolean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/ValueInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/ValueInt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/ValueLong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/value/ValueLong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/util/BufferWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/util/BufferWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/net/handler/frontend/FrontendAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/net/handler/frontend/FrontendAuthenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/server/FreedomServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/server/FreedomServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/Attribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/Attribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/IndexEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/IndexEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/TableLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/TableLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/TableManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/TableManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/factory/RelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/factory/RelFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/fs/FStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/fs/FStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/item/ItemPointer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/item/ItemPointer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/log/LogStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/log/LogStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/transaction/redo/RedoManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/transaction/redo/RedoManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +71,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jerryyummy&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="93feb997-432e-4879-8c9e-809e9be34f91" />
+        <option name="url" value="git@github.com:jerryyummy/Freedom.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
@@ -112,7 +127,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ValueString">
+  <component name="RunManager" selected="JUnit.TableTest">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -241,27 +256,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ValueString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="alchemystar.freedom.meta.value.ValueString" />
-      <module name="freedom" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="alchemystar.freedom.meta.value.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeleteTest.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LogTest.testWrite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="freedom" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alchemystar.freedom.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="alchemystar.freedom.test" />
+      <option name="MAIN_CLASS_NAME" value="alchemystar.freedom.test.LogTest" />
+      <option name="METHOD_NAME" value="testWrite" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SelectTest.selectJoin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="freedom" />
       <extension name="coverage">
         <pattern>
@@ -270,9 +288,42 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="alchemystar.freedom.test.sqltest" />
-      <option name="MAIN_CLASS_NAME" value="alchemystar.freedom.test.sqltest.DeleteTest" />
-      <option name="METHOD_NAME" value="test2" />
+      <option name="MAIN_CLASS_NAME" value="alchemystar.freedom.test.sqltest.SelectTest" />
+      <option name="METHOD_NAME" value="selectJoin" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TableMetaTest.metaReadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="freedom" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alchemystar.freedom.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="alchemystar.freedom.test" />
+      <option name="MAIN_CLASS_NAME" value="alchemystar.freedom.test.TableMetaTest" />
+      <option name="METHOD_NAME" value="metaReadTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="freedom" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alchemystar.freedom.test.bptest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="alchemystar.freedom.test.bptest" />
+      <option name="MAIN_CLASS_NAME" value="alchemystar.freedom.test.bptest.TableTest" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -304,15 +355,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ValueString" />
       <item itemvalue="Application.FreedomServer" />
-      <item itemvalue="JUnit.DeleteTest.test2" />
+      <item itemvalue="JUnit.LogTest.testWrite" />
+      <item itemvalue="JUnit.SelectTest.selectJoin" />
+      <item itemvalue="JUnit.TableMetaTest.metaReadTest" />
+      <item itemvalue="JUnit.TableTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ValueString" />
+        <item itemvalue="JUnit.TableTest" />
         <item itemvalue="Application.FreedomServer" />
-        <item itemvalue="JUnit.DeleteTest.test2" />
+        <item itemvalue="JUnit.LogTest.testWrite" />
+        <item itemvalue="JUnit.TableMetaTest.metaReadTest" />
+        <item itemvalue="JUnit.SelectTest.selectJoin" />
       </list>
     </recent_temporary>
   </component>
@@ -351,8 +406,24 @@
       <workItem from="1574675872013" duration="1532000" />
       <workItem from="1714401173727" duration="2129000" />
       <workItem from="1714437198969" duration="602000" />
-      <workItem from="1714437855748" duration="3827000" />
+      <workItem from="1714437855748" duration="4524000" />
+      <workItem from="1714447076296" duration="3012000" />
+      <workItem from="1714466442953" duration="4218000" />
+      <workItem from="1714523556721" duration="6318000" />
+      <workItem from="1714629071973" duration="4188000" />
+      <workItem from="1714739397114" duration="4651000" />
+      <workItem from="1714756125496" duration="626000" />
+      <workItem from="1714790557575" duration="4642000" />
     </task>
+    <task id="LOCAL-00001" summary="add comments">
+      <option name="closed" value="true" />
+      <created>1714442139820</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714442139820</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -368,6 +439,10 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="add comments" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

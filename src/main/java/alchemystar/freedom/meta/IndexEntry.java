@@ -108,7 +108,7 @@ public class IndexEntry {
     }
 
     private int innerCompare(IndexEntry indexEntry) {
-        int min = values.length < indexEntry.getValues().length ? values.length : indexEntry.getValues().length;
+        int min = Math.min(values.length, indexEntry.getValues().length);
         int comp = 0;
         for (int i = 0; i < min; i++) {
             if (values[i] == null) {

@@ -23,9 +23,20 @@ public class Attribute {
 
     private boolean isPrimaryKey;
 
+    /**
+     * Instantiates a new Attribute.
+     */
     public Attribute() {
     }
 
+    /**
+     * Instantiates a new Attribute.
+     *
+     * @param name    the name
+     * @param type    the type
+     * @param index   the index
+     * @param comment the comment
+     */
     public Attribute(String name, int type, int index, String comment) {
         this.name = name;
         this.type = type;
@@ -33,6 +44,11 @@ public class Attribute {
         this.comment = comment;
     }
 
+    /**
+     * Gets default value.
+     *
+     * @return the default value
+     */
     public Value getDefaultValue() {
 
         switch (type) {
@@ -49,46 +65,100 @@ public class Attribute {
         }
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     * @return the name
+     */
     public Attribute setName(String name) {
         this.name = name;
         return this;
     }
 
+    /**
+     * Gets type.
+     *
+     * @return the type
+     */
     public int getType() {
         return type;
     }
 
+    /**
+     * Sets type.
+     *
+     * @param type the type
+     * @return the type
+     */
     public Attribute setType(int type) {
         this.type = type;
         return this;
     }
 
+    /**
+     * Gets index.
+     *
+     * @return the index
+     */
     public int getIndex() {
         return index;
     }
 
+    /**
+     * Sets index.
+     *
+     * @param index the index
+     * @return the index
+     */
     public Attribute setIndex(int index) {
         this.index = index;
         return this;
     }
 
+    /**
+     * Gets comment.
+     *
+     * @return the comment
+     */
     public String getComment() {
         return comment;
     }
 
+    /**
+     * Sets comment.
+     *
+     * @param comment the comment
+     * @return the comment
+     */
     public Attribute setComment(String comment) {
         this.comment = comment;
         return this;
     }
 
+    /**
+     * Is primary key boolean.
+     *
+     * @return the boolean
+     */
     public boolean isPrimaryKey() {
         return isPrimaryKey;
     }
 
+    /**
+     * Sets primary key.
+     *
+     * @param primaryKey the primary key
+     */
     public void setPrimaryKey(boolean primaryKey) {
         isPrimaryKey = primaryKey;
     }

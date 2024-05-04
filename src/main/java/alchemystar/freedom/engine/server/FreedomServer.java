@@ -48,9 +48,9 @@ public class FreedomServer extends Thread {
 
     public void startServer() {
         // acceptor , one port => one thread
-        EventLoopGroup bossGroup = new NioEventLoopGroup(BOSS_THREAD_COUNT);
+        EventLoopGroup bossGroup = new NioEventLoopGroup(BOSS_THREAD_COUNT);//创建一个用于处理新连接的线程组。这个组只负责接收新的连接
         // worker
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        EventLoopGroup workerGroup = new NioEventLoopGroup();// 创建一个用于处理已经建立连接的数据传输的线程组。
 
         try {
             // Freedom Server
@@ -59,14 +59,14 @@ public class FreedomServer extends Thread {
             // 这边的childHandler是用来管理accept的
             // 由于线程间传递的是byte[],所以内存池okay
             // 只需要保证分配ByteBuf和write在同一个线程(函数)就行了
-            b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
-                    .option(ChannelOption.SO_BACKLOG, 1024)
+            b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)//设置用于实例化新通道的类以接受传入的连接
+                    .option(ChannelOption.SO_BACKLOG, 1024)//设置TCP的参数，此处的 SO_BACKLOG 表示系统用于临时存放已完成三次握手的请求的队列的最大长度
                     .childHandler(new FrontHandlerFactory()).option(ChannelOption.ALLOCATOR,
-                    PooledByteBufAllocator.DEFAULT)
+                    PooledByteBufAllocator.DEFAULT)//设置内存分配器，此处使用池化的 ByteBuf 分配器以优化内存使用
                     .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, SocketConfig.CONNECT_TIMEOUT_MILLIS)
                     .option(ChannelOption.SO_TIMEOUT, SocketConfig.SO_TIMEOUT);
-            ChannelFuture f = b.bind(database.getServerPort()).sync();
-            f.channel().closeFuture().sync();
+            ChannelFuture f = b.bind(database.getServerPort()).sync();//启动服务器并绑定到从数据库配置中获取的端口上，使用 .sync() 确保在绑定完成前方法不会返回
+            f.channel().closeFuture().sync();//等待服务器通道关闭，这是一个阻塞操作
 
         } catch (InterruptedException e) {
             logger.error("监听失败" + e);

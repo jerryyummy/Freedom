@@ -16,7 +16,7 @@ public class Database {
     private int serverPort = 8090;
     // 默认用户名密码是pay|miracle
     private String userName = "pay";
-    private String passWd = "MiraCle";
+    private String passWd = "miracle";
     private TableLoader tableLoader;
     private LogStore logStore;
 
