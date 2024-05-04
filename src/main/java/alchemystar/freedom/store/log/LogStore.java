@@ -48,6 +48,7 @@ public class LogStore {
     public void appendLog(Log log) {
         ByteBuf byteBuf = byteBufAllocator.buffer(1024);
         log.writeBytes(byteBuf);
+
         append(byteBuf.nioBuffer());
     }
 
@@ -94,6 +95,8 @@ public class LogStore {
                 if (log.getOpType() == OpType.insert) {
                     log.setAfter(entry);
                 } else if (log.getOpType() == OpType.delete) {
+                    log.setAfter(entry);
+                } else if (log.getLogType() == OpType.update) {
                     log.setAfter(entry);
                 }
             }

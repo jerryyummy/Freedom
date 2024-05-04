@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee0a0092-c184-49a4-bafc-5f711a922a02" name="Default" comment="add undo for update">
+    <list default="true" id="ee0a0092-c184-49a4-bafc-5f711a922a02" name="Default" comment="add thread-safe for PageNoAllocator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/page/PageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/page/PageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/page/PageNoAllocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/page/PageNoAllocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/log/LogStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/log/LogStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/page/PageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/page/PageLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -402,7 +402,7 @@
       <workItem from="1714629071973" duration="4188000" />
       <workItem from="1714739397114" duration="4651000" />
       <workItem from="1714756125496" duration="626000" />
-      <workItem from="1714790557575" duration="7666000" />
+      <workItem from="1714790557575" duration="10523000" />
     </task>
     <task id="LOCAL-00001" summary="add comments">
       <option name="closed" value="true" />
@@ -436,7 +436,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714797648031</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add thread-safe for PageNoAllocator">
+      <option name="closed" value="true" />
+      <created>1714798927464</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714798927464</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -457,7 +465,8 @@
     <MESSAGE value="add comments" />
     <MESSAGE value="add comments and redo for update" />
     <MESSAGE value="add undo for update" />
-    <option name="LAST_COMMIT_MESSAGE" value="add undo for update" />
+    <MESSAGE value="add thread-safe for PageNoAllocator" />
+    <option name="LAST_COMMIT_MESSAGE" value="add thread-safe for PageNoAllocator" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

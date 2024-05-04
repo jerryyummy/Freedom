@@ -1,6 +1,8 @@
 package alchemystar.freedom.optimizer;
 
+import alchemystar.freedom.index.BaseIndex;
 import alchemystar.freedom.index.Index;
+import alchemystar.freedom.meta.Attribute;
 import alchemystar.freedom.meta.IndexDesc;
 import alchemystar.freedom.meta.IndexEntry;
 import alchemystar.freedom.meta.Table;
@@ -17,18 +19,32 @@ public class Optimizer {
     }
 
     public Index chooseIndex(IndexEntry entry) {
-        if(entry != null && !entry.isAllNull()) {
+        if (entry != null && !entry.isAllNull()) {
             IndexDesc indexDesc = entry.getIndexDesc();
-            // 如果包含主键id,则直接用主键id进行查询
-            if (indexDesc.getPrimaryAttr() != null && entry.getValues()[indexDesc.getPrimaryAttr().getIndex()] !=
-                    null) {
+            if (indexDesc.getPrimaryAttr() != null && entry.getValues()[indexDesc.getPrimaryAttr().getIndex()] != null) {
                 return table.getClusterIndex();
             }
-            // 二级索引选择器优化留待后续优化
-            return table.getSecondIndexes().get(0);
-        }else {
-            return table.getClusterIndex();
+
+            // 优化选择最适合的二级索引
+            for (BaseIndex idx : table.getSecondIndexes()) {
+                IndexDesc idesc = idx.getIndexDesc();
+                if (isIndexApplicable(idesc, entry)) {
+                    return idx;
+                }
+            }
         }
+        // 如果没有合适的二级索引，回退到聚簇索引
+        return table.getClusterIndex();
     }
+
+    private boolean isIndexApplicable(IndexDesc idesc, IndexEntry entry) {
+        for (Attribute attr : idesc.getAttrs()) {
+            if (entry.getValues()[attr.getIndex()] == null) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
 }
