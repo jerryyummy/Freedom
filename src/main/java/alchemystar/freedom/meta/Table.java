@@ -112,10 +112,17 @@ public class Table {
      * @param newEntry the new entry to replace the old one
      */
     public void update(IndexEntry oldEntry, IndexEntry newEntry) {
-        // 删除旧条目
-        delete(oldEntry);
-        // 插入新条目
-        insert(newEntry);
+        if (clusterIndex.getTable().find(oldEntry)!=null) {
+            clusterIndex.delete(oldEntry);
+            clusterIndex.insert(newEntry, true);
+            // 更新二级索引
+            for (BaseIndex secondIndex : secondIndexes) {
+                secondIndex.delete(oldEntry);
+                secondIndex.insert(newEntry, false);
+            }
+        } else {
+            System.out.println("Error: Entry not found for update.");
+        }
     }
 
     /**

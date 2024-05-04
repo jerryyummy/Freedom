@@ -26,7 +26,7 @@ public class UndoManager {
                     break;
             }
         } else {
-            // do nothing;
+            System.out.println("the log type is not row");
         }
     }
 
@@ -36,7 +36,8 @@ public class UndoManager {
     }
 
     public static void undoUpdate(Table table, Log log) {
-        // todo
+        //update undo = > delete + insert
+        table.update(log.getAfter(), log.getBefore());
     }
 
     public static void undoDelete(Table table, Log log) {

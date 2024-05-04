@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee0a0092-c184-49a4-bafc-5f711a922a02" name="Default" comment="add comments">
+    <list default="true" id="ee0a0092-c184-49a4-bafc-5f711a922a02" name="Default" comment="add comments and redo for update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/net/handler/frontend/FrontendAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/net/handler/frontend/FrontendAuthenticator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/server/FreedomServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/server/FreedomServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/Attribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/Attribute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/IndexEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/IndexEntry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/Table.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/TableLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/TableLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/TableManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/TableManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/factory/RelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/meta/factory/RelFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/fs/FStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/fs/FStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/item/ItemPointer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/item/ItemPointer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/log/LogStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/log/LogStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/transaction/redo/RedoManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/transaction/redo/RedoManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/transaction/undo/UndoManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/transaction/undo/UndoManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -413,7 +402,7 @@
       <workItem from="1714629071973" duration="4188000" />
       <workItem from="1714739397114" duration="4651000" />
       <workItem from="1714756125496" duration="626000" />
-      <workItem from="1714790557575" duration="4642000" />
+      <workItem from="1714790557575" duration="5970000" />
     </task>
     <task id="LOCAL-00001" summary="add comments">
       <option name="closed" value="true" />
@@ -423,7 +412,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714442139820</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add comments and redo for update">
+      <option name="closed" value="true" />
+      <created>1714796219748</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714796219748</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -442,7 +439,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="add comments" />
+    <MESSAGE value="add comments and redo for update" />
+    <option name="LAST_COMMIT_MESSAGE" value="add comments and redo for update" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
