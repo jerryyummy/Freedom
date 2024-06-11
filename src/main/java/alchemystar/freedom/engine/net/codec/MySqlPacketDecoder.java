@@ -45,7 +45,7 @@ public class MySqlPacketDecoder extends ByteToMessageDecoder {
             throw new IllegalArgumentException("Packet size over the limit " + maxPacketSize);
         }
         byte packetId = in.readByte();
-        if (in.readableBytes() < packetLength) {
+        if (in.readableBytes() < packetLength) {//检查当前可读字节数是否大于等于数据包长度，如果小于则表示接收到了一个半包，需要进行回溯，重置读取位置
             // 半包回溯
             in.resetReaderIndex();
             return;

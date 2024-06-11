@@ -14,6 +14,11 @@ import alchemystar.freedom.store.page.PageFactory;
  * BPNode
  * todo 节点内部查询用二分法
  * 必须限定key的size < InitFreeSize/3
+ * 这个文件定义了B+树中的节点（BPNode类），它具有以下主要功能：
+ * 节点属性：包括节点所包含的键值对（entries），以及指向父节点和相邻节点（前驱和后继）的引用。
+ * 节点操作：支持键值对的插入、删除和搜索。
+ * 分裂和合并：当节点中的条目太多或太少时，实现节点的分裂和合并，保持树的平衡。
+ * 借用和合并逻辑：如果一个节点在删除一个条目后条目过少，可以从相邻节点借用，或者与相邻节点合并
  *
  * @Author lizhuyang
  */
@@ -66,6 +71,12 @@ public class BPNode {
      */
     protected BPTree bpTree;
 
+    /**
+     * Instantiates a new Bp node.
+     *
+     * @param isLeaf the is leaf
+     * @param bpTree the bp tree
+     */
     public BPNode(boolean isLeaf, BPTree bpTree) {
         this.isLeaf = isLeaf;
         this.bpTree = bpTree;
@@ -78,11 +89,25 @@ public class BPNode {
         bpPage = PageFactory.getInstance().newBpPage(this);
     }
 
+    /**
+     * Instantiates a new Bp node.
+     *
+     * @param isLeaf the is leaf
+     * @param isRoot the is root
+     * @param bpTree the bp tree
+     */
     public BPNode(boolean isLeaf, boolean isRoot, BPTree bpTree) {
         this(isLeaf, bpTree);
         this.isRoot = isRoot;
     }
 
+    /**
+     * Get position.
+     *
+     * @param key        the key
+     * @param comareType the comare type
+     * @return the position
+     */
     public Position get(IndexEntry key, int comareType) {
         if (isLeaf) {
             for (int i = 0; i < entries.size(); i++) {
@@ -124,6 +149,13 @@ public class BPNode {
         return null;
     }
 
+    /**
+     * Insert.
+     *
+     * @param entry    the entry
+     * @param tree     the tree
+     * @param isUnique the is unique
+     */
     public void insert(IndexEntry entry, BPTree tree, boolean isUnique) {
         if (getBorrowKeyLength(entry) > bpPage.getInitFreeSpace() / 3) {
             throw new RuntimeException("entry size must <= Max/3");
@@ -228,6 +260,13 @@ public class BPNode {
         }
     }
 
+    /**
+     * Remove boolean.
+     *
+     * @param key  the key
+     * @param tree the tree
+     * @return the boolean
+     */
     protected boolean remove(IndexEntry key, BPTree tree) {
         boolean found = false;
         // 如果是叶子节点
@@ -329,7 +368,12 @@ public class BPNode {
         return found;
     }
 
-    // 删除节点后的中间节点更新
+    /**
+     * Update remove.
+     *
+     * @param tree the tree
+     */
+// 删除节点后的中间节点更新
     protected void updateRemove(BPTree tree) {
         if (children.size() < 2 || bpPage.getContentSize() < bpPage.getInitFreeSpace() / 2) {
             if (isRoot) {
@@ -405,6 +449,11 @@ public class BPNode {
         return index - 1;
     }
 
+    /**
+     * Add pre node.
+     *
+     * @param bpNode the bp node
+     */
     public void addPreNode(BPNode bpNode) {
         if (!bpNode.isLeaf()) {
             int parentIdx = this.getParentEntry(this);
@@ -422,6 +471,11 @@ public class BPNode {
         }
     }
 
+    /**
+     * Add next node.
+     *
+     * @param bpNode the bp node
+     */
     public void addNextNode(BPNode bpNode) {
         // 后驱节点的entry下移
         // 叶子节点无需下移
@@ -441,7 +495,12 @@ public class BPNode {
         }
     }
 
-    // 一致性检测,通过使用compareEntry来实现
+    /**
+     * Inner check exist.
+     *
+     * @param indexEntry the index entry
+     */
+// 一致性检测,通过使用compareEntry来实现
     protected void innerCheckExist(IndexEntry indexEntry) {
         for (int i = 0; i < entries.size(); i++) {
             if (entries.get(i).getCompareEntry().compareIndex(indexEntry) == 0) {
@@ -453,6 +512,8 @@ public class BPNode {
     /**
      * 插入到当前节点的关键字中
      * 有序
+     *
+     * @param indexEntry the index entry
      */
     protected void innerInsert(IndexEntry indexEntry) {
         //如果关键字列表长度为0，则直接插入
@@ -559,6 +620,11 @@ public class BPNode {
         parent.getEntries().add(currEntryIdx, next.getEntries().get(0));
     }
 
+    /**
+     * Update insert.
+     *
+     * @param tree the tree
+     */
     protected void updateInsert(BPTree tree) {
         // 当前页面存不下,需要分裂
         if (isNodeSplit()) {
@@ -617,70 +683,153 @@ public class BPNode {
 
     }
 
+    /**
+     * Is leaf boolean.
+     *
+     * @return the boolean
+     */
     public boolean isLeaf() {
         return isLeaf;
     }
 
+    /**
+     * Sets leaf.
+     *
+     * @param leaf the leaf
+     * @return the leaf
+     */
     public BPNode setLeaf(boolean leaf) {
         isLeaf = leaf;
         return this;
     }
 
+    /**
+     * Is root boolean.
+     *
+     * @return the boolean
+     */
     public boolean isRoot() {
         return isRoot;
     }
 
+    /**
+     * Sets root.
+     *
+     * @param root the root
+     * @return the root
+     */
     public BPNode setRoot(boolean root) {
         isRoot = root;
         return this;
     }
 
+    /**
+     * Gets parent.
+     *
+     * @return the parent
+     */
     public BPNode getParent() {
         return parent;
     }
 
+    /**
+     * Sets parent.
+     *
+     * @param parent the parent
+     * @return the parent
+     */
     public BPNode setParent(BPNode parent) {
         this.parent = parent;
         return this;
     }
 
+    /**
+     * Gets previous.
+     *
+     * @return the previous
+     */
     public BPNode getPrevious() {
         return previous;
     }
 
+    /**
+     * Sets previous.
+     *
+     * @param previous the previous
+     * @return the previous
+     */
     public BPNode setPrevious(BPNode previous) {
         this.previous = previous;
         return this;
     }
 
+    /**
+     * Gets next.
+     *
+     * @return the next
+     */
     public BPNode getNext() {
         return next;
     }
 
+    /**
+     * Sets next.
+     *
+     * @param next the next
+     * @return the next
+     */
     public BPNode setNext(BPNode next) {
         this.next = next;
         return this;
     }
 
+    /**
+     * Gets entries.
+     *
+     * @return the entries
+     */
     public List<IndexEntry> getEntries() {
         return entries;
     }
 
+    /**
+     * Sets entries.
+     *
+     * @param entries the entries
+     * @return the entries
+     */
     public BPNode setEntries(List<IndexEntry> entries) {
         this.entries = entries;
         return this;
     }
 
+    /**
+     * Gets children.
+     *
+     * @return the children
+     */
     public List<BPNode> getChildren() {
         return children;
     }
 
+    /**
+     * Sets children.
+     *
+     * @param children the children
+     * @return the children
+     */
     public BPNode setChildren(List<BPNode> children) {
         this.children = children;
         return this;
     }
 
-    // 判断当前节点是否包含此tuple
+    /**
+     * Leaf contains for delete boolean.
+     *
+     * @param indexEntry the index entry
+     * @return the boolean
+     */
+// 判断当前节点是否包含此tuple
     protected boolean leafContainsForDelete(IndexEntry indexEntry) {
         // 这边由于
         for (IndexEntry item : entries) {
@@ -691,6 +840,12 @@ public class BPNode {
         return false;
     }
 
+    /**
+     * Gets remove key index.
+     *
+     * @param key the key
+     * @return the remove key index
+     */
     protected int getRemoveKeyIndex(IndexEntry key) {
         int index = 0;
         for (int i = 0; i < entries.size(); i++) {
@@ -702,7 +857,13 @@ public class BPNode {
         return -1;
     }
 
-    // 删除节点
+    /**
+     * Remove boolean.
+     *
+     * @param key the key
+     * @return the boolean
+     */
+// 删除节点
     protected boolean remove(IndexEntry key) {
         int index = -1;
         boolean found = false;
@@ -724,20 +885,37 @@ public class BPNode {
         }
     }
 
+    /**
+     * Is leaf split boolean.
+     *
+     * @param key the key
+     * @return the boolean
+     */
     public boolean isLeafSplit(IndexEntry key) {
-        if (bpPage.cacluateRemainFreeSpace() < Item.getItemLength(key)) {
+        if (bpPage.calculateRemainFreeSpace() < Item.getItemLength(key)) {
             return true;
         }
         return false;
     }
 
+    /**
+     * Is node split boolean.
+     *
+     * @return the boolean
+     */
     public boolean isNodeSplit() {
-        if (bpPage.cacluateRemainFreeSpace() < 0) {
+        if (bpPage.calculateRemainFreeSpace() < 0) {
             return true;
         }
         return false;
     }
 
+    /**
+     * Can remove direct boolean.
+     *
+     * @param key the key
+     * @return the boolean
+     */
     public boolean canRemoveDirect(IndexEntry key) {
         if ((bpPage.getContentSize() - Item.getItemLength(key)) > bpPage.getInitFreeSpace() / 2) {
             return true;
@@ -745,6 +923,11 @@ public class BPNode {
         return false;
     }
 
+    /**
+     * Can leaf borrow previous boolean.
+     *
+     * @return the boolean
+     */
     public boolean canLeafBorrowPrevious() {
         if (previous != null && previous.getEntries().size() > 2 && previous.getParent() == parent) {
             IndexEntry borrowKey = previous.getEntries().get(previous.getEntries().size() - 1);
@@ -760,6 +943,11 @@ public class BPNode {
         return false;
     }
 
+    /**
+     * Can leaf borrow next boolean.
+     *
+     * @return the boolean
+     */
     public boolean canLeafBorrowNext() {
         if (next != null && next.getEntries().size() > 2 && next.getParent() == parent) {
             IndexEntry borrowKey = next.getEntries().get(0);
@@ -775,6 +963,12 @@ public class BPNode {
         return false;
     }
 
+    /**
+     * Can node borrow previous boolean.
+     *
+     * @param bpNode the bp node
+     * @return the boolean
+     */
     public boolean canNodeBorrowPrevious(BPNode bpNode) {
         if (bpNode == null || bpNode.getEntries().size() < 2) {
             return false;
@@ -782,6 +976,12 @@ public class BPNode {
         return canNodeBorrow(bpNode, bpNode.getEntries().get(bpNode.getEntries().size() - 1));
     }
 
+    /**
+     * Can node borrow next boolean.
+     *
+     * @param bpNode the bp node
+     * @return the boolean
+     */
     public boolean canNodeBorrowNext(BPNode bpNode) {
         if (bpNode == null || bpNode.getEntries().size() < 2) {
             return false;
@@ -789,6 +989,13 @@ public class BPNode {
         return canNodeBorrow(bpNode, bpNode.getEntries().get(0));
     }
 
+    /**
+     * Can node borrow boolean.
+     *
+     * @param bpNode the bp node
+     * @param key    the key
+     * @return the boolean
+     */
     public boolean canNodeBorrow(BPNode bpNode, IndexEntry key) {
         if (bpNode == null) {
             return false;
@@ -798,7 +1005,7 @@ public class BPNode {
         if (bpNode.getParent() == parent &&
                 bpNode.getEntries().size() >= 2 &&
                 bpNode.bpPage.getContentSize() - borrowKeyLength > bpNode.bpPage.getInitFreeSpace() / 2 &&
-                borrowKeyLength <= this.bpPage.cacluateRemainFreeSpace()) {
+                borrowKeyLength <= this.bpPage.calculateRemainFreeSpace()) {
             return true;
         } else if (this.entries.size() == 0 && bpNode.getEntries().size() >= 2) {
             // 这边特殊处理,是为了不破坏B+树的性质
@@ -811,19 +1018,31 @@ public class BPNode {
         }
     }
 
+    /**
+     * Can leaf merge boolean.
+     *
+     * @param bpNode the bp node
+     * @return the boolean
+     */
     public boolean canLeafMerge(BPNode bpNode) {
         if (bpNode == null) {
             return false;
         }
         // 加上contentSize<space/2这个条件,是为了防止频繁的合并分裂节点
         if (bpNode != null && bpNode.bpPage.getContentSize() < bpNode.bpPage.getInitFreeSpace() / 2 && bpNode.bpPage
-                .getContentSize() <= bpPage.cacluateRemainFreeSpace()
+                .getContentSize() <= bpPage.calculateRemainFreeSpace()
                 && bpNode.getParent() == parent) {
             return true;
         }
         return false;
     }
 
+    /**
+     * Can merge prevois boolean.
+     *
+     * @param bpNode the bp node
+     * @return the boolean
+     */
     public boolean canMergePrevois(BPNode bpNode) {
         if (bpNode == null) {
             return false;
@@ -836,13 +1055,19 @@ public class BPNode {
                 IndexEntry downKey = this.getParent().getEntries().get(parentIdx);
                 adjutSize = Item.getItemLength(downKey);
             }
-            if (bpNode.bpPage.getContentSize() + adjutSize <= bpPage.cacluateRemainFreeSpace()) {
+            if (bpNode.bpPage.getContentSize() + adjutSize <= bpPage.calculateRemainFreeSpace()) {
                 return true;
             }
         }
         return false;
     }
 
+    /**
+     * Can merge next boolean.
+     *
+     * @param bpNode the bp node
+     * @return the boolean
+     */
     public boolean canMergeNext(BPNode bpNode) {
         if (bpNode == null) {
             return false;
@@ -855,26 +1080,48 @@ public class BPNode {
                 IndexEntry downKey = this.getParent().getEntries().get(parentIdx);
                 adjutSize = Item.getItemLength(downKey);
             }
-            if (bpNode.bpPage.getContentSize() + adjutSize <= bpPage.cacluateRemainFreeSpace()) {
+            if (bpNode.bpPage.getContentSize() + adjutSize <= bpPage.calculateRemainFreeSpace()) {
                 return true;
             }
         }
         return false;
     }
 
+    /**
+     * Gets page no.
+     *
+     * @return the page no
+     */
     public int getPageNo() {
         return pageNo;
     }
 
+    /**
+     * Sets page no.
+     *
+     * @param pageNo the page no
+     * @return the page no
+     */
     public BPNode setPageNo(int pageNo) {
         this.pageNo = pageNo;
         return this;
     }
 
+    /**
+     * Gets bp page.
+     *
+     * @return the bp page
+     */
     public BpPage getBpPage() {
         return bpPage;
     }
 
+    /**
+     * Sets bp page.
+     *
+     * @param bpPage the bp page
+     * @return the bp page
+     */
     public BPNode setBpPage(BpPage bpPage) {
         this.bpPage = bpPage;
         return this;
@@ -895,6 +1142,11 @@ public class BPNode {
         bpTree.recyclePageNo(pageNo);
     }
 
+    /**
+     * Flush to disk.
+     *
+     * @param fStore the f store
+     */
     public void flushToDisk(FStore fStore) {
         bpPage.writeToPage();
         fStore.writePageToFile(bpPage, pageNo);
@@ -906,10 +1158,21 @@ public class BPNode {
         }
     }
 
+    /**
+     * Gets bp tree.
+     *
+     * @return the bp tree
+     */
     public BPTree getBpTree() {
         return bpTree;
     }
 
+    /**
+     * Sets bp tree.
+     *
+     * @param bpTree the bp tree
+     * @return the bp tree
+     */
     public BPNode setBpTree(BPTree bpTree) {
         this.bpTree = bpTree;
         return this;

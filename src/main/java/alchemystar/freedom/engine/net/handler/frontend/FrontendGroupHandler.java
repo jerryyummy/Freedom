@@ -29,14 +29,14 @@ public class FrontendGroupHandler extends ChannelHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         frontendGroup.put(source.getId(), source);
-        ctx.fireChannelActive();
+        ctx.fireChannelActive();//传递事件给管道中的下一个处理器
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         frontendGroup.remove(source.getId());
         source.close();
-        ctx.fireChannelActive();
+        ctx.fireChannelInactive();//通知管道中的其他处理器通道已经关闭
     }
 
 }

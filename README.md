@@ -6,6 +6,7 @@
 ![](https://oscimg.oschina.net/oscnet/up-83cf4cad225751c169cc260f1be5de72b0f.png)      
 最终存储结构当然是使用经典的B+树结构。当然在B+树和文件系统block块之间的转换则通过Buffer(Page) Manager来进行。当然了，为了完成事务，还必须要用WAL协议，其通过Log Manager来操作。    
 Freedom采用的是索引组织表，通过DruidSQL Parse来将sql翻译为对应的索引操作符进而进行对应的语义操作。      
+
 ## MySQL Protocol结构
 client/server之间的交互采用的是MySQL协议，这样很容易就可以和mysql client以及jdbc进行交互了。      
 ### query packet 
@@ -94,6 +95,7 @@ Freedom自然也做了这个操作，使得可以在宕机后通过log恢复出�
 Freedom如果在page全部刷盘之后关机，则可以由通过加载page的方式获取原来的数据。
 但如果突然宕机,例如kill -9之后，则可以通过WAL协议中记录的redo/undo log来重新
 恢复所有的数据。由于时间和精力所限，笔者并没有实现基于LSN的检查点机制。
+
 ## Freedom运行
 ```
 git clone https://github.com/alchemystar/Freedom.git

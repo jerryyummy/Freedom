@@ -48,7 +48,7 @@ public class FrontendConnection {
     private volatile int txIsolation;
     private volatile boolean autocommit = true;
 
-    // initDB的同时 bind BackendConnecton
+    // initDB的同时 bind Backend Connecton
     public void initDB(BinaryPacket bin) {
         session = SessionFactory.newSession(this);
         MySQLMessage mm = new MySQLMessage(bin.data);
@@ -101,7 +101,7 @@ public class FrontendConnection {
     }
 
     public void close() {
-        logger.info("close frontedconnection,host:{},port:{}", host, port);
+        logger.info("close fronted connection,host:{},port:{}", host, port);
         ctx.close();
     }
 

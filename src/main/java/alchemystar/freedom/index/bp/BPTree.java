@@ -22,6 +22,12 @@ import alchemystar.freedom.store.page.PagePool;
 /**
  * BPTree
  * B plus tree
+ * <p>
+ * 这个文件定义了整个B+树的结构和操作，主要包括：
+ * 树操作：插入、删除、搜索和遍历功能。
+ * 根节点和头节点的管理：保持对根节点和头节点（叶子节点链表的起始节点）的引用，这对于许多树操作是必要的。
+ * 持久化到磁盘：提供方法将树的状态写入磁盘，这是数据库和文件系统中常见的要求。
+ * 批量删除和插入：允许对多个条目进行批量操作，优化大量数据处理的性能
  *
  * @Author lizhuyang
  */
@@ -37,8 +43,18 @@ public class BPTree extends BaseIndex {
      */
     protected BPNode head;
 
+    /**
+     * The Node map.
+     */
     protected Map<Integer, BPNode> nodeMap;
 
+    /**
+     * Instantiates a new Bp tree.
+     *
+     * @param table      the table
+     * @param indexName  the index name
+     * @param attributes the attributes
+     */
     public BPTree(Table table, String indexName, Attribute[] attributes) {
         super(table, indexName, attributes);
         root = new BPNode(true, true, this);
@@ -46,26 +62,40 @@ public class BPTree extends BaseIndex {
         nodeMap = new HashMap<Integer, BPNode>();
     }
 
+    /**
+     * Load from disk.
+     */
     public void loadFromDisk() {
         int rootPageNo = getRootPageNoFromMeta();
         getNodeFromPageNo(rootPageNo);
     }
 
+    /**
+     * Gets root page no from meta.
+     *
+     * @return the root page no from meta
+     */
     public int getRootPageNoFromMeta() {
-        PageLoader loader = new PageLoader(fStore.readPageFromFile(0));
+        PageLoader loader = new PageLoader(fStore.readPageFromFile(0));//读取文件中第一页的数据，并使用 PageLoader 加载页数据
         loader.load();
         return ((ValueInt) loader.getIndexEntries()[0].getValues()[0]).getInt();
     }
 
-    public BPNode getNodeFromPageNo(int pageNo) {
+    /**
+     * Gets node from page no.
+     *
+     * @param pageNo the page no
+     * @return the node from page no
+     */
+    public BPNode getNodeFromPageNo(int pageNo) {//根据给定的页号获取对应的节点
         if (pageNo == -1) {
             return null;
         }
-        BPNode bpNode = nodeMap.get(pageNo);
+        BPNode bpNode = nodeMap.get(pageNo);//首先检查缓存中是否存在对应页号的节点，如果存在则直接返回
         if (bpNode != null) {
             return bpNode;
         }
-        BpPage bpPage = (BpPage) fStore.readPageFromFile(pageNo, true);
+        BpPage bpPage = (BpPage) fStore.readPageFromFile(pageNo, true);//从文件存储中读取指定页号的页数据，并将其转换为 BpPage 对象，然后调用 readFromPage 方法从页数据中读取节点，并进行初始化
         bpNode = bpPage.readFromPage(this);
         if (bpNode.isRoot()) {
             root = bpNode;
@@ -199,15 +229,32 @@ public class BPTree extends BaseIndex {
         return list;
     }
 
+    /**
+     * Gets node map.
+     *
+     * @return the node map
+     */
     public Map<Integer, BPNode> getNodeMap() {
         return nodeMap;
     }
 
+    /**
+     * Sets node map.
+     *
+     * @param nodeMap the node map
+     * @return the node map
+     */
     public BPTree setNodeMap(Map<Integer, BPNode> nodeMap) {
         this.nodeMap = nodeMap;
         return this;
     }
 
+    /**
+     * Inner remove boolean.
+     *
+     * @param key the key
+     * @return the boolean
+     */
     public boolean innerRemove(IndexEntry key) {
         return root.remove(key, this);
     }
@@ -249,26 +296,51 @@ public class BPTree extends BaseIndex {
         root.flushToDisk(fStore);
     }
 
-    // MetaPage for root page no
+    /**
+     * Write meta page.
+     */
+// MetaPage for root page no
     public void writeMetaPage() {
         Page page = PagePool.getIntance().getFreePage();
         page.writeItem(new Item(BpPage.genTupleInt(root.getPageNo())));
         fStore.writePageToFile(page, 0);
     }
 
+    /**
+     * Gets root.
+     *
+     * @return the root
+     */
     public BPNode getRoot() {
         return root;
     }
 
+    /**
+     * Sets root.
+     *
+     * @param root the root
+     * @return the root
+     */
     public BPTree setRoot(BPNode root) {
         this.root = root;
         return this;
     }
 
+    /**
+     * Gets head.
+     *
+     * @return the head
+     */
     public BPNode getHead() {
         return head;
     }
 
+    /**
+     * Sets head.
+     *
+     * @param head the head
+     * @return the head
+     */
     public BPTree setHead(BPNode head) {
         this.head = head;
         return this;

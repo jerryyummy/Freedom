@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee0a0092-c184-49a4-bafc-5f711a922a02" name="Default" comment="add thread-safe for PageNoAllocator">
+    <list default="true" id="ee0a0092-c184-49a4-bafc-5f711a922a02" name="Default" comment="add Optimizer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/log/LogStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/log/LogStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/page/PageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/store/page/PageLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/net/codec/MySqlPacketDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/net/codec/MySqlPacketDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/net/handler/factory/FrontHandlerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/net/handler/factory/FrontHandlerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/net/handler/frontend/FrontendConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/net/handler/frontend/FrontendConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/net/handler/frontend/FrontendGroupHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/engine/net/handler/frontend/FrontendGroupHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/index/bp/BPNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/index/bp/BPNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/index/bp/BPTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/index/bp/BPTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/index/bp/BpPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alchemystar/freedom/index/bp/BpPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,14 +72,12 @@
     &quot;assignee&quot;: &quot;jerryyummy&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="93feb997-432e-4879-8c9e-809e9be34f91" />
-        <option name="url" value="git@github.com:jerryyummy/Freedom.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:jerryyummy/Freedom.git&quot;,
+    &quot;accountId&quot;: &quot;93feb997-432e-4879-8c9e-809e9be34f91&quot;
+  }
+}</component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
@@ -107,6 +111,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/youyun/Documents/java-project/Freedom&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -231,6 +236,15 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FreedomServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="alchemystar.freedom.engine.server.FreedomServer" />
       <module name="freedom" />
@@ -334,15 +348,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file enabled="true" id="idea.log" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.FreedomServer" />
       <item itemvalue="JUnit.LogTest.testWrite" />
@@ -371,6 +376,14 @@
         </serviceView>
       </list>
     </option>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -402,7 +415,10 @@
       <workItem from="1714629071973" duration="4188000" />
       <workItem from="1714739397114" duration="4651000" />
       <workItem from="1714756125496" duration="626000" />
-      <workItem from="1714790557575" duration="10523000" />
+      <workItem from="1714790557575" duration="15613000" />
+      <workItem from="1715136958552" duration="13617000" />
+      <workItem from="1716104160042" duration="4826000" />
+      <workItem from="1716125512455" duration="9765000" />
     </task>
     <task id="LOCAL-00001" summary="add comments">
       <option name="closed" value="true" />
@@ -444,7 +460,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714798927464</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add Optimizer">
+      <option name="closed" value="true" />
+      <created>1714802431619</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714802431619</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -466,7 +490,8 @@
     <MESSAGE value="add comments and redo for update" />
     <MESSAGE value="add undo for update" />
     <MESSAGE value="add thread-safe for PageNoAllocator" />
-    <option name="LAST_COMMIT_MESSAGE" value="add thread-safe for PageNoAllocator" />
+    <MESSAGE value="add Optimizer" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Optimizer" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

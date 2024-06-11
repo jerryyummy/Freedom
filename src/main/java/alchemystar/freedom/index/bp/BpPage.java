@@ -24,6 +24,10 @@ import alchemystar.freedom.store.page.PageLoader;
  * childCounts Tuples
  * previous page
  * next page
+ * <p>
+ * 这个文件似乎处理与节点存储相关的底层页面管理，具体包括：
+ * 页面管理：管理页面的使用和空闲空间，确保数据有效地存储在磁盘页面上。
+ * 空间计算：提供方法来计算页面的初始空闲空间和当前空闲空间，这对于节点操作中的空间管理非常关键
  *
  * @Author lizhuyang
  */
@@ -35,11 +39,21 @@ public class BpPage extends Page {
 
     private int nodeInitFreeSpace;
 
+    /**
+     * Instantiates a new Bp page.
+     *
+     * @param defaultSize the default size
+     */
     public BpPage(int defaultSize) {
         super(defaultSize);
         init();
     }
 
+    /**
+     * Instantiates a new Bp page.
+     *
+     * @param bpNode the bp node
+     */
     public BpPage(BPNode bpNode) {
         super(SystemConfig.DEFAULT_PAGE_SIZE);
         this.bpNode = bpNode;
@@ -55,6 +69,12 @@ public class BpPage extends Page {
                         .PAGE_HEADER_SIZE;
     }
 
+    /**
+     * Read from page bp node.
+     *
+     * @param bpTree the bp tree
+     * @return the bp node
+     */
     public BPNode readFromPage(BPTree bpTree) {
         PageLoader loader = new PageLoader(this);
         loader.load();
@@ -96,6 +116,9 @@ public class BpPage extends Page {
         return bpNode;
     }
 
+    /**
+     * Write to page.
+     */
     public void writeToPage() {
         // header already write
         // write isLeaf
@@ -140,6 +163,11 @@ public class BpPage extends Page {
         }
     }
 
+    /**
+     * Gets content size.
+     *
+     * @return the content size
+     */
     public int getContentSize() {
         int size = 0;
         for (IndexEntry key : bpNode.getEntries()) {
@@ -153,10 +181,20 @@ public class BpPage extends Page {
         return size;
     }
 
-    public int cacluateRemainFreeSpace() {
+    /**
+     * Calculate remain free space int.
+     *
+     * @return the int
+     */
+    public int calculateRemainFreeSpace() {
         return getInitFreeSpace() - getContentSize();
     }
 
+    /**
+     * Gets init free space.
+     *
+     * @return the init free space
+     */
     public int getInitFreeSpace() {
         if (bpNode.isLeaf()) {
             return leafInitFreeSpace;
@@ -182,6 +220,12 @@ public class BpPage extends Page {
         }
     }
 
+    /**
+     * Gen tuple int index entry.
+     *
+     * @param i the
+     * @return the index entry
+     */
     public static IndexEntry genTupleInt(int i) {
         Value[] vs = new Value[1];
         ValueInt valueInt = new ValueInt(i);
@@ -189,10 +233,22 @@ public class BpPage extends Page {
         return new IndexEntry(vs);
     }
 
+    /**
+     * Gets tuple int.
+     *
+     * @param indexEntry the index entry
+     * @return the tuple int
+     */
     public int getTupleInt(IndexEntry indexEntry) {
         return ((ValueInt) indexEntry.getValues()[0]).getInt();
     }
 
+    /**
+     * Gets tuple boolean.
+     *
+     * @param indexEntry the index entry
+     * @return the tuple boolean
+     */
     public boolean getTupleBoolean(IndexEntry indexEntry) {
         int i = ((ValueInt) indexEntry.getValues()[0]).getInt();
         if (i == 1) {
